@@ -1,0 +1,30 @@
+{
+  "$comment": "このファイルをMAMPなどを使用してlocalhostでアクセス出来るようにして使用する。",
+  "name": "chatData",
+  "data": [
+    {
+      "isMe": false,
+      "icon": null,
+      "name": "ryo",
+      "text": "Hello World",
+      "image": null,
+      "time": "2022-08-31_08_05"
+    },
+    {
+      "isMe": true,
+      "icon": null,
+      "name": "yuta",
+      "text": "Hello World",
+      "image": null,
+      "time": "2022-08-31_08_10"
+    },
+    {
+      "isMe": false,
+      "icon": null,
+      "name": "ryo",
+      "text": "Hello World",
+      "image": "http://10.0.2.2/sample1.png",
+      "time": "2022-08-31_08_18"
+    }
+  ]
+}
