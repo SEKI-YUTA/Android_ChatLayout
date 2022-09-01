@@ -13,13 +13,14 @@
         <LinearLayout
             android:id="@+id/textWrapper"
             android:orientation="horizontal"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:background="@drawable/own_vote_bg">
             <TextView
                 android:id="@+id/tv_text"
                 android:text="hello"
+                android:maxWidth="200dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
