@@ -32,7 +32,7 @@ public class ImagePreview extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_image_preview, container, false);
-        img_large = view.findViewById(R.id.img_large);
+        img_large = view.findViewById(R.id.img_content);
         url = getArguments().getString("url");
         if(url != null) {
             Glide.with(getContext()).load(Uri.parse(url)).into(img_large);

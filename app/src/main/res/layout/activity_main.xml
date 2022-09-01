@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+<!--  FragmentContainerViewだとTransitionManagerによる遷移が出来ないが現在は使用していないのでどちらでもよい  -->
+    <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

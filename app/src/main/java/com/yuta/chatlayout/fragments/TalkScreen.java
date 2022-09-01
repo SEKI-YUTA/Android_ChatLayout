@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -21,6 +23,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.yuta.chatlayout.MainActivity;
 import com.yuta.chatlayout.R;
@@ -64,29 +67,29 @@ public class TalkScreen extends Fragment {
         recycler_talk.setLayoutManager(new GridLayoutManager(getContext(), 1));
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.INTERNET}, PERMISSION_CODE);
+//            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.INTERNET}, PERMISSION_CODE);
+            requestPermission.launch(Manifest.permission.INTERNET);
         } else {
             appSetUP();
         }
         return view;
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case PERMISSION_CODE:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    appSetUP();
-                }
-        }
-    }
 
     private void appSetUP() {
 //        Glide.with(this).load(Uri.parse(imgUrl)).into(img_localhost);
         ExecutorService service = Executors.newSingleThreadExecutor();
         service.submit(dataFetch);
     }
+
+    private final ActivityResultLauncher<String> requestPermission =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if(isGranted) {
+                    appSetUP();
+                } else {
+                    Toast.makeText(getContext(), "INTERNET permission is required", Toast.LENGTH_SHORT).show();
+                }
+            });
 
     private final Runnable dataFetch = new Runnable() {
         @Override
@@ -138,8 +141,7 @@ public class TalkScreen extends Fragment {
                     .addSharedElement(shareElement, "img_large")
                     .replace(R.id.fragmentContainer, fragment)
                     .addToBackStack(null).commit();
-//            Scene imgPrev = Scene.getSceneForLayout(getActivity().findViewById(R.id.fragmentContainer), R.layout.fragment_image_preview, getContext());
-//            TransitionManager.go(imgPrev);
+
         }
     };
 }
