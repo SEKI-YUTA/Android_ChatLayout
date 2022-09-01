@@ -13,7 +13,7 @@
         <LinearLayout
             android:id="@+id/textWrapper"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:background="@drawable/own_vote_bg">
@@ -23,6 +23,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="08:10"/>
         <ImageView
             android:id="@+id/img_content"
             android:layout_marginTop="8dp"
