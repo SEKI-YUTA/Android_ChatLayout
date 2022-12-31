@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "time": "2022-12-31_10_30",
+      "text": "Hey!",
+      "image": null,
+      "isMe": true
+    },
+    {
+      "time": "2022-12-31_10_32",
+      "text": "Hi",
+      "image": null,
+      "isMe": false
+    },
+    {
+      "time": "2022-12-31_10_35",
+      "text": "Hello",
+      "image": null,
+      "isMe": true
+    },
+    {
+      "time": "2022-12-31_10_30",
+      "text": "Yha",
+      "image": null,
+      "isMe": false
+    }
+  ]
+}

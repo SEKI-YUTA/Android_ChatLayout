@@ -44,7 +44,8 @@ import java.util.concurrent.Executors;
 public class TalkScreen extends Fragment {
     private RecyclerView recycler_talk;
     private TalkAdapter adapter;
-    private String chatDataUrl = "http://10.0.2.2/chatData.json";
+    private String chatDataUrl = "http://10.0.2.2/chat_data.json";
+    // The chat_data.json contains raw folder
     private final int PERMISSION_CODE = 101;
     private String jsonString = null;
 
